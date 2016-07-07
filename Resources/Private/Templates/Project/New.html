@@ -1,0 +1,39 @@
+
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+            <h1><a href="#" class="btn btn-default close"><span class="glyphicon glyphicon-remove"></span></a> &nbsp;New Project</h1>
+        </div>
+    </div>
+
+    <f:flashMessages renderMode="div"/>
+
+    <f:render partial="FormErrors" arguments="{object:Project}" />
+
+<f:form action="create"  enctype="multipart/form-data"  name="newProject" object="{newProject}" class="form-horizontal" >
+    <f:render partial="Project/FormFields" />
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <f:form.submit value="Create new" class="btn btn-primary btn-lg"/>
+        </div>
+    </div>
+
+
+</f:form>
+</f:section>

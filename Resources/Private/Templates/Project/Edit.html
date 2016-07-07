@@ -1,0 +1,41 @@
+<f:layout name="Default"/>
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+            <h1><a href="#" class="btn btn-default close"><span class="glyphicon glyphicon-remove"></span></a> &nbsp;Edit Project</h1>
+        </div>
+    </div>
+
+    <f:flashMessages renderMode="div"/>
+
+    <f:render partial="FormErrors" arguments="{object:Project}"/>
+
+    <f:form action="update" name="project" controller="Project" object="{project}" class="form-horizontal editProject">
+        <f:render partial="Project/FormFields" arguments="{project:project}"/>
+        <br />
+        <f:form.textfield name="project" type="hidden" value="{project}" placeholder="Task Title"/>
+        <f:form.textfield name="task" type="hidden" value="{task}" placeholder="Task Title"/>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <f:form.submit value="Save" id="projectEdit" class="btn btn-primary btn-lg projectEdit"/>
+            </div>
+        </div>
+
+        <hr />
+
+
+    </f:form>
+</f:section>

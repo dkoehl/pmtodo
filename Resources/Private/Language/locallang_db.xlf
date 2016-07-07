@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-27T08:31:13Z" product-name="pmtodo">
+		<header/>
+		<body>
+			<trans-unit id="tx_pmtodo_domain_model_project">
+				<source>Project</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_project.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_project.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_project.startdate">
+				<source>Startdate</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_project.enddate">
+				<source>Enddate</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_project.tasks">
+				<source>Tasks</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task">
+				<source>Task</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task.startdate">
+				<source>Startdate</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task.enddate">
+				<source>Enddate</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task.files">
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_task.todos">
+				<source>Todos</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_todo">
+				<source>Todo</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_todo.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_todo.startdate">
+				<source>Startdate</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_todo.enddate">
+				<source>Enddate</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_todo.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_pmtodo_domain_model_todo.files">
+				<source>Files</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

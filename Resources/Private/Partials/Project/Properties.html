@@ -1,0 +1,35 @@
+
+<table class="tx-pmtodo" >
+	<tr>
+		<td>
+			<f:translate key="tx_pmtodo_domain_model_project.name" />
+		</td>
+		<td>
+		{project.name}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_pmtodo_domain_model_project.description" />
+		</td>
+		<td>
+		{project.description}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_pmtodo_domain_model_project.startdate" />
+		</td>
+		<td>
+		{project.startdate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_pmtodo_domain_model_project.enddate" />
+		</td>
+		<td>
+		{project.enddate -> f:format.date()}
+		</td>
+	</tr>
+</table>

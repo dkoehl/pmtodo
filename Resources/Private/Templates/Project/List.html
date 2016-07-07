@@ -1,0 +1,273 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages renderMode="div" />
+
+
+    <div class="row">
+        <div id="scrolltop"></div>
+
+        <div id="resolvedTodo" style="display:none; text-align:center;"></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="projectEditResponse" style="display:none;"></div>
+        </div>
+
+        <div class="col-xs-12 col-sm-5 col-md-4">
+            <h2>Projects
+                <f:link.action action="new" id="newProject" >
+                    <button type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-plus"></span>New Project
+                    </button>
+                </f:link.action>
+            </h2>
+
+            <div id="projectEditSaved" style="display:none;"></div>
+                <ul class="list-group" id="projects">
+                    <f:for each="{projects}" as="project" iteration="index">
+
+                        <li class="list-group-item {f:if(condition: '{project.uid} == {selectedProject.uid}',  then: ' active', else: '')}" id="project-{project.uid}">
+                            <f:link.action action="delete" controller="Project" arguments="{project : project}">
+                                <span class="glyphicon glyphicon-trash pull-right" data-name="{project.uid}"></span>
+                            </f:link.action>
+
+
+                            <f:link.action action="edit" controller="Project" class="editProject" arguments="{project : project}">
+                                <span class="glyphicon glyphicon-pencil pull-right">&nbsp;</span>
+                            </f:link.action>
+
+                            <f:link.action action="list" arguments="{project : project}">
+                                <h4 class="list-group-item-heading">
+                                    <!--<span class="glyphicon glyphicon-ok {f:if(condition: '{project.task} > 0',  then: ' deactivate', else: ' activate')} "></span> -->
+                                    {project.name}&nbsp;<span class="badge"><f:count subject="{project.tasks}" /></span>
+                                </h4>
+
+                                <small>
+                                    <f:format.date format="D d.m.Y">@{project.enddate}</f:format.date>
+                                </small>
+                                <f:if condition="{project.description}">
+                                    <p class="list-group-item-text">{project.description}</p>
+                                </f:if>
+
+                            </f:link.action>
+                        </f:for>
+                    </li>
+                </ul>
+        </div>
+
+
+    <div class="col-xs-12 col-sm-7 col-md-8">
+
+        <div id="showTaskForm"></div>
+
+        <div id="tasks">
+            <div id="scrolltoTask"></div>
+
+            <f:for each="{projects}" as="projectItem" iteration="projectindex">
+                <!--TASKS-->
+                <div id="project-{projectItem.uid}" class="hide">
+                    <h2>Tasks
+                        <f:link.action action="new" controller="Task" id="newTask" arguments="{project: projectItem.uid}" >
+                            <button type="button" class="btn btn-default btn-lg">
+                                <span class="glyphicon glyphicon-plus"></span>New Task
+                            </button>
+                        </f:link.action>
+                    </h2>
+
+                    <f:if condition="{projectItem.tasks}">
+                        <ul class="list-group">
+                        <f:for each="{projectItem.tasks}" as="taskItem" iteration="taskindex">
+                            <li name="task-{taskItem.uid}" class="list-group-item task {f:if(condition: '{taskItem.status} == 1',  then: ' inactive', else: '')}">
+
+                                <f:link.action action="delete" controller="Task"  arguments="{task : taskItem, project : selectedProject}">
+                                    <span class="glyphicon glyphicon-trash pull-right"></span>
+                                </f:link.action>
+
+                                <f:link.action action="edit" class="editTask" controller="Task" arguments="{task : taskItem, project : selectedProject}">
+                                    <span class="glyphicon glyphicon-pencil pull-right">&nbsp;</span>
+                                </f:link.action>
+
+                                <f:if condition="{taskItem.description}">
+                                    <f:link.action action="show" controller="Task" arguments="{task : taskItem, project : selectedProject}">
+                                        <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-search pull-right">&nbsp;</span>
+                                    </f:link.action>
+                                </f:if>
+
+
+                                <small>
+                                    <span class="badge">
+                                        <f:format.date format="D d.m.Y">@{taskItem.startdate}</f:format.date>
+                                    </span>
+                                    <f:if condition="{taskItem.enddate} != {taskItem.startdate}">
+                                        <span class="badge">
+                                        <f:format.date format="D d.m.Y">@{taskItem.enddate}</f:format.date>
+                                    </span>
+                                    </f:if>
+                                </small>
+
+
+
+                                <h4>
+                                    <f:link.action action="resolved" controller="Task" arguments="{task : taskItem.uid , project : selectedProject}">
+                                        <span class="glyphicon glyphicon-ok{f:if(condition: '{taskItem.status} == 1',  then: ' activate', else: ' deactivate')}" data-name="{taskItem.uid}">&nbsp;</span>
+                                    </f:link.action>
+                                    <f:link.action action="list" arguments="{task : taskItem.uid , project : selectedProject}">
+                                        {taskItem.title}
+                                        <f:if condition="{taskItem.todos}">
+                                            <span class="badge"><f:count subject="{taskItem.todos}" /></span>
+                                        </f:if>
+                                    </f:link.action>
+                                </h4>
+
+                                <f:if condition="{taskItem.description}">
+                                        <p class="list-group-item-text">
+                                            <f:format.crop maxCharacters="200" append="&nbsp;[...]">
+                                                {taskItem.description}
+                                            </f:format.crop>
+                                        </p>
+                                </f:if>
+
+                                <f:if condition="{taskItem.files}">
+                                    <br />
+                                    <f:for each="{taskItem.files}" as="fileItem">
+                                        <a href="uploads/tx_pmtodo/{fileItem.basename}" target="_blank" title="{fileItem.basename}">
+                                            <f:image src="typo3/gfx/fileicons/{fileItem.extension}.gif" /> <small>({fileItem.filesize})</small>
+                                        </a>
+                                    </f:for>
+                                </f:if>
+                            </li>
+                        </f:for>
+
+                        </ul>
+                    </f:if>
+                </div>
+
+            </f:for>
+        </div>
+
+
+
+        <!--TODOS-->
+        <div id="scrolltoTodo"></div>
+        <div id="showTodoForm"></div>
+        <div id="todos">
+
+            <f:for each="{projects}" as="projecttodo" iteration="projectiteration">
+                <f:for each="{projecttodo.tasks}" as="task" iteration="todoindex">
+
+                    <div id="task-{task.uid}" class="hide">
+
+                        <h2>Todos <f:link.action controller="Todo" action="new"  id="newTodo" arguments="{task: task.uid, project : projecttodo}">
+                            <button type="button" class="btn btn-default btn-lg">
+                                <span class="glyphicon glyphicon-plus"></span>New ToDo
+                            </button>
+                        </f:link.action>
+                        </h2>
+
+
+                        <f:if condition="{task.todos}">
+
+                            <ul class="list-group">
+
+                                <f:for each="{task.todos}" as="toDo" iteration="indexx">
+                                    <li class="list-group-item {f:if(condition: '{toDo.status} == 1',  then: ' inactive', else: '')}">
+
+                                        <f:link.action action="delete" controller="Todo" arguments="{todo : toDo, task:task, project:selectedProject}">
+                                            <span class="glyphicon glyphicon-trash pull-right"></span>
+                                        </f:link.action>
+
+                                        <f:link.action action="edit" class="editTodo" controller="Todo" arguments="{todo : toDo, task:task, project:selectedProject}">
+                                            <span class="glyphicon glyphicon-pencil pull-right resolved">&nbsp;</span>
+                                        </f:link.action>
+
+                                        <f:if condition="{toDo.description}">
+                                            <f:link.action action="show" controller="Todo" arguments="{todo : toDo, task:task, project:selectedProject}">
+                                                <span data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-search pull-right">&nbsp;</span>
+                                            </f:link.action>
+                                        </f:if>
+
+
+
+                                        <small>
+                                    <span class="badge">
+                                        <f:format.date format="D d.m.Y">@{toDo.startdate}</f:format.date>
+                                    </span>
+
+                                            <f:if condition="{toDo.enddate}">
+                                                <f:if condition="{toDo.enddate} != {toDo.startdate}">
+                                                    <span class="badge"><f:format.date format="D d.m.Y">@{toDo.enddate}</f:format.date></span>
+                                                </f:if>
+
+                                            </f:if>
+                                        </small>
+
+                                        <h4>
+                                            <f:link.action action="resolved" controller="Todo" arguments="{todo : toDo, task:task, project:selectedProject}">
+                                                <span class="glyphicon glyphicon-ok{f:if(condition: '{toDo.status} == 1',  then: ' activate', else: ' deactivate')}" data-name="{toDo.uid}">&nbsp;</span>
+                                            </f:link.action>
+                                            {toDo.title}
+                                        </h4>
+
+                                        <f:if condition="{toDo.description}">
+                                            <p class="list-group-item-text">
+                                                <f:format.crop maxCharacters="200" append="&nbsp;[...]">
+                                                    {toDo.description}
+                                                </f:format.crop>
+                                            </p>
+                                        </f:if>
+                                        <f:if condition="{toDo.files}">
+                                            <f:for each="{toDo.files}" as="fileItem">
+                                                <a href="uploads/tx_pmtodo/{fileItem.basename}" target="_blank" title="{fileItem.basename}">
+                                                    <f:image src="typo3/gfx/fileicons/{fileItem.extension}.gif" /> <small>({fileItem.filesize})</small>
+                                                </a>
+                                            </f:for>
+                                        </f:if>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+
+                    </div>
+
+                </f:for>
+            </f:for>
+        </div>
+    </div>
+
+    </div>
+
+
+    <a href="#" class="scrollToTop" title="Back to Top"><span class="glyphicon glyphicon-hand-up"></span></a>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+
+
+</f:section>

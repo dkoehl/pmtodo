@@ -1,0 +1,100 @@
+
+plugin.tx_pmtodo {
+	view {
+		templateRootPath = {$plugin.tx_pmtodo.view.templateRootPath}
+		partialRootPath = {$plugin.tx_pmtodo.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_pmtodo.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_pmtodo.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_pmtodo._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-pmtodo table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-pmtodo table th {
+		font-weight:bold;
+	}
+
+	.tx-pmtodo table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)
+ajaxCall = PAGE
+ajaxCall {
+    typeNum = 666
+
+    10 = COA
+    10 < tt_content.list.20.pmtodo_pmtodo
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 1
+        no_cache = 0
+        metaCharset = UTF-8
+    }
+}
+
+
+page.config {
+	no_cache                            = 0
+	compressJs                          = 1
+	compressCss                         = 1
+	concatenateJs                       = 1
+	concatenateCss                      = 1
+	headerComment                       = boomShakalakaaah
+}
+
+
+page.includeCSS{
+    file21 = https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css
+	file22 = EXT:pmtodo/Resources/Public/Css/jquery.ui.css
+	file22 = EXT:pmtodo/Resources/Public/Css/style.css
+	file20 = EXT:pmtodo/Resources/Public/Css/custom.css
+
+}
+page.includeJS {
+
+}
+page.includeJSFooterlibs {
+	jQuery = https://code.jquery.com/jquery-1.10.2.js
+	jQueryUi = https://code.jquery.com/ui/1.11.0/jquery-ui.js
+
+    // file upload js
+	fileuploadlib1 = EXT:pmtodo/Resources/Public/Js/jquery.knob.js
+	fileuploadlib2 = EXT:pmtodo/Resources/Public/Js/jquery.ui.widget.js
+	fileuploadlib3 = EXT:pmtodo/Resources/Public/Js/jquery.iframe-transport.js
+	fileuploadlib4 = EXT:pmtodo/Resources/Public/Js/jquery.fileupload.js
+	fileuploadlib5 = EXT:pmtodo/Resources/Public/Js/script.js
+	custom = EXT:pmtodo/Resources/Public/Js/custom.js
+}
+

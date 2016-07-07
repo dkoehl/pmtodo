@@ -1,0 +1,58 @@
+<script>
+    $(function() {
+        var dates = $( "#from, #to" ).datepicker({
+            dateFormat: "D dd.mm.yy",
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            onSelect: function( selectedDate ) {
+                var option = this.id == "from" ? "minDate" : "maxDate",
+                        instance = $( this ).data( "datepicker" ),
+                        date = $.datepicker.parseDate(
+                                instance.settings.dateFormat ||
+                                        $.datepicker._defaults.dateFormat,
+                                selectedDate, instance.settings );
+                dates.not( this ).datepicker( "option", option, date );
+            }
+        });
+    });
+
+
+
+
+    $(function() {
+        $('input.btn').on("click",function(e){
+            e.preventDefault();
+
+            $('#showTodoForm').hide('slow')
+            $('form.todoform').submit();
+
+        });
+    });
+
+</script>
+
+
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="title"><f:translate key="tx_pmtodo_domain_model_todo.title" /></label>
+    <div class="col-sm-8">
+        <f:form.textfield property="title" class="form-control" placeholder="Title of the Todo" required="1" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="startdate"><f:translate key="tx_pmtodo_domain_model_todo.startdate" /></label>
+    <div class="col-sm-2">
+        <f:form.textfield property="startdate"  value='<f:format.date format="D d.m.Y">{f:if(condition: "{todo.startdate}",  then: "@{todo.startdate}")}</f:format.date>' class="form-control datepicker" type="datetime" id="from"/>
+    </div>
+    <label class="col-sm-2 control-label" for="enddate"><f:translate key="tx_pmtodo_domain_model_todo.enddate" /></label>
+    <div class="col-sm-2">
+        <f:form.textfield property="enddate"  value='<f:format.date format="D d.m.Y">{f:if(condition: "{todo.enddate}",  then: "@{todo.enddate}")}</f:format.date>' class="form-control datepicker"  type="datetime" id="to" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="description"><f:translate key="tx_pmtodo_domain_model_todo.description" /></label>
+    <div class="col-sm-8">
+        <f:form.textarea property="description" cols="20" rows="7" class="form-control" placeholder="Some Details of what to do"/>
+    </div>
+</div>

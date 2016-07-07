@@ -1,0 +1,49 @@
+<script>
+    $(function() {
+        var dates = $( "#from, #to" ).datepicker({
+            dateFormat: "D dd.mm.yy",
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            onSelect: function( selectedDate ) {
+                var option = this.id == "from" ? "minDate" : "maxDate",
+                        instance = $( this ).data( "datepicker" ),
+                        date = $.datepicker.parseDate(
+                                instance.settings.dateFormat ||
+                                        $.datepicker._defaults.dateFormat,
+                                selectedDate, instance.settings );
+                dates.not( this ).datepicker( "option", option, date );
+            }
+        });
+    });
+</script>
+
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="name"><f:translate key="tx_pmtodo_domain_model_project.name" /></label>
+    <div class="col-sm-8">
+        <f:form.textfield property="name" class="form-control" placeholder="Project Title" required="1" />
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="startdate"><f:translate key="tx_pmtodo_domain_model_project.startdate" /></label>
+    <div class="col-sm-2">
+        <f:form.textfield property="startdate"  value='<f:format.date format="D d.m.Y">{f:if(condition: "{project.startdate}",  then: "@{project.startdate}")}</f:format.date>' class="form-control datepicker" id="from" type="datetime"  />
+    </div>
+    <label class="col-sm-1 control-label" for="enddate"><f:translate key="tx_pmtodo_domain_model_project.enddate" /></label>
+    <div class="col-sm-2">
+        <f:form.textfield property="enddate"  value='<f:format.date format="D d.m.Y">{f:if(condition: "{project.enddate}",  then: "@{project.enddate}")}</f:format.date>' class="form-control datepicker" id="to" type="datetime"  />
+    </div>
+</div>
+
+
+ <div class="form-group">
+    <label class="col-sm-2 control-label" for="description"><f:translate key="tx_pmtodo_domain_model_project.description" /></label>
+    <div class="col-sm-8">
+        <f:form.textarea property="description" cols="40" rows="8" class="form-control" placeholder="What is this all about?" />
+    </div>
+</div>
+
+

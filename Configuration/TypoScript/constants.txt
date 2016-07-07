@@ -1,0 +1,28 @@
+
+plugin.tx_pmtodo {
+	view {
+		# cat=plugin.tx_pmtodo/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:pmtodo/Resources/Private/Templates/
+		# cat=plugin.tx_pmtodo/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:pmtodo/Resources/Private/Partials/
+		# cat=plugin.tx_pmtodo/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:pmtodo/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_pmtodo//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}
+
+
+
+
+
+page.config {
+	no_cache                            = 0
+	compressJs                          = 1
+	compressCss                         = 1
+	concatenateJs                       = 1
+	concatenateCss                      = 1
+	headerComment                       = boomShakalakaaah
+}

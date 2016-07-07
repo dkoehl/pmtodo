@@ -1,0 +1,11 @@
+<li class="list-group-item {f:if(condition: '{taskItem.status} == 1',  then: ' inactive', else: '')}">
+    <span class="glyphicon glyphicon-trash pull-right"></span>
+    <f:link.action action="edit" class="editTask" controller="Task" arguments="{task : taskItem.uid , project : selectedProject}"><span class="glyphicon glyphicon-pencil pull-right resolved">&nbsp;</span></f:link.action>
+
+    <h4>
+        <f:link.action action="resolved" controller="Task" arguments="{task : taskItem.uid , project : selectedProject}">
+            <span class="glyphicon glyphicon-ok deactivate" data-name="{taskItem.uid}"></span>
+        </f:link.action> {taskItem.title}</h4>
+    <p class="list-group-item-text">{taskItem.description}</p>
+
+</li>

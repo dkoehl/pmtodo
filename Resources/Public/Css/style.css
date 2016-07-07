@@ -1,0 +1,99 @@
+
+
+#upload{
+    background-color: #efefef;
+    border-radius: 7px;
+    margin-bottom: 50px;
+    width: 100%;
+    min-height: 150px;
+}
+
+#drop{
+    /*padding: 40px 50px;*/
+    /*margin-bottom: 30px;*/
+    border: 20px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size:16px;
+    font-weight:bold;
+    color:#7f858a;
+}
+
+#drop a{
+    background-color:#007a96;
+    padding:12px 26px;
+    color:#fff;
+    font-size:14px;
+    border-radius:2px;
+    cursor:pointer;
+    display:inline-block;
+    margin-top:12px;
+    line-height:1;
+}
+
+#drop a:hover{
+    background-color:#0986a3;
+}
+
+
+#upload ul{
+    list-style:none;
+    padding-left: 0px;
+}
+
+#upload ul li{
+    border-bottom: 1px solid #2b2e31;
+    border-top: 1px solid #3d4043;
+    color: #333639;
+    height: 71px;
+    padding: 15px;
+    position: relative;
+}
+
+#upload ul li input{
+    display: none;
+}
+
+#upload ul li p{
+    color: #333;
+    font-size: 13px;
+    left: 100px;
+    position: absolute;
+    top: 20px;
+    white-space: nowrap;
+}
+
+#upload ul li i{
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+}
+
+#upload ul li canvas{
+    top: 15px;
+    left: 32px;
+    position: absolute;
+}
+
+#upload ul li span{
+    width: 15px;
+    height: 12px;
+    background: url('../Images/icons.png') no-repeat;
+    position: absolute;
+    top: 34px;
+    right: 33px;
+    cursor:pointer;
+}
+
+#upload ul li.working span{
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#upload ul li.error p{
+    color:red;
+}
+

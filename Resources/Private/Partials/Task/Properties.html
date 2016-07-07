@@ -1,0 +1,32 @@
+<div class="col-sm-12">
+    <div class="row">
+        <small>
+            <span class="badge"><f:format.date format="D d.m.Y">@{task.startdate}</f:format.date></span>
+            -
+            <span class="badge"><f:format.date format="D d.m.Y">@{task.enddate}</f:format.date></span>
+        </small>
+    </div>
+
+
+    <div class="row">
+        <h3>{task.title}</h3>
+    </div>
+
+
+    <div class="row">
+        <f:format.html>{task.description}</f:format.html>
+    </div>
+    <br /><br />
+
+    <f:if condition="{task.files}">
+        <div class="row">
+            <f:for each="{task.files}" as="fileItem">
+                <a href="uploads/tx_pmtodo/{fileItem.basename}" target="_blank" title="{fileItem.basename}">
+                    <f:image src="typo3/gfx/fileicons/{fileItem.extension}.gif" /> <small>({fileItem.filesize})</small>
+                </a>
+            </f:for>
+        </div>
+    </f:if>
+</div>
+
+

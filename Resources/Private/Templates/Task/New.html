@@ -1,0 +1,63 @@
+<f:layout name="Default"/>
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+            <h1><a href="#" class="btn btn-default close"><span class="glyphicon glyphicon-remove"></span></a> &nbsp;New
+                Task</h1>
+        </div>
+    </div>
+
+<div id="scrolltop"></div>
+
+    <f:flashMessages renderMode="div"/>
+
+
+    <f:form action="create" controller="Task" enctype="multipart/form-data" name="newTask" object="{newTask}" class="form-horizontal taskform">
+        <f:render partial="Task/FormFields"/>
+
+        <f:form.textfield name="project" type="hidden" value="{selectedID}"/>
+        <br />
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+
+
+                <f:form.submit value="Create new" class="btn btn-primary btn-lg"/>
+            </div>
+        </div>
+    </f:form>
+    <br />
+    <br />
+
+    <div id="fileupload">
+        <div class="form-group">
+            <label for="files" class="col-sm-2 control-label">
+            </label>
+            <div class="col-sm-8">
+                <f:form id="upload" action="uploadFiles" controller="Task" enctype="multipart/form-data" name="newTask" object="{newTask}" class="form-horizontal">
+                    <div id="drop">
+                        Drop Here
+                        <input type="file" name="upl" multiple/>
+                    </div>
+                    <ul>
+                        <!-- The file uploads will be shown here -->
+                    </ul>
+                </f:form>
+            </div>
+        </div>
+    </div>
+
+</f:section>
