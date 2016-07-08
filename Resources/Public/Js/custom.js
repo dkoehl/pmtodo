@@ -1,11 +1,12 @@
 
 /**
+ * ToDo: Clean up ;)
  * Automatically init
  */
 $(document).ready(function () {
-
-
-    // Holt Edit Project Form
+    /**
+     * Gets Project Form
+     */
     $("a.editProject").on("click",function(e){
         e.preventDefault();
         $.ajax({
@@ -29,7 +30,9 @@ $(document).ready(function () {
             }
         });
     });
-    // Holt Edit Task Form
+    /**
+     * Gets the Task Form
+     */
     $("a.editTask").on("click",function(e){
         e.preventDefault();
         $.ajax({

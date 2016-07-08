@@ -97,6 +97,9 @@ $GLOBALS['TCA']['tx_pmtodo_domain_model_todo'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_pmtodo_domain_model_todo.gif'
 	),
 );
+/**
+ * No need for the Flexforms, works fine without it
+ */
 //$extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
 //$pluginName = strtolower('Pmtodo');
 //$pluginSignature = $extensionName.'_'.$pluginName;

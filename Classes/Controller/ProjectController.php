@@ -26,13 +26,10 @@ namespace Pmtodo\Pmtodo\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 /**
  * ProjectController
  */
 class ProjectController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
 	/**
 	 * projectRepository
 	 *
@@ -40,12 +37,10 @@ class ProjectController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @inject
 	 */
 	protected $projectRepository = NULL;
-
     /**
      * @var \Pmtodo\Pmtodo\Domain\Repository\TaskRepository
      */
     protected $taskRepository;
-
     /**
      * todoRepository
      *
@@ -53,8 +48,6 @@ class ProjectController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @inject
      */
     protected $todoRepository = NULL;
-
-
     /**
      * injectTaskRepository
      *
@@ -74,8 +67,6 @@ class ProjectController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function injectTodoRepository(\Pmtodo\Pmtodo\Domain\Repository\TodoRepository $todoRepository) {
         $this->todoRepository = $todoRepository;
     }
-
-
     /**
 	 * action list
 	 *
@@ -86,7 +77,6 @@ class ProjectController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $this->view->assign('projects', $projects);
         $this->view->assign('userid', $GLOBALS['TSFE']->fe_user->user['uid']);
 	}
-
 	/**
 	 * action show
 	 *
@@ -96,7 +86,6 @@ class ProjectController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	public function showAction(\Pmtodo\Pmtodo\Domain\Model\Project $project) {
 		$this->view->assign('project', $project);
 	}
-
 	/**
 	 * action new
 	 *

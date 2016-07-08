@@ -26,13 +26,10 @@ namespace Pmtodo\Pmtodo\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 /**
  * TaskController
  */
 class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
 	/**
 	 * taskRepository
 	 *
@@ -40,7 +37,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @inject
 	 */
 	protected $taskRepository = NULL;
-
 	/**
 	 * action list
 	 *
@@ -54,7 +50,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 
 		$this->view->assign('tasks', $tasks);
 	}
-
 	/**
 	 * action show
 	 *
@@ -64,7 +59,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	public function showAction(\Pmtodo\Pmtodo\Domain\Model\Task $task) {
 		$this->view->assign('task', $task);
 	}
-
 	/**
 	 * action new
 	 *
@@ -76,7 +70,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		$this->view->assign('selectedID', $this->request->getArgument('project'));
 		$this->view->assign('newTask', $newTask);
 	}
-
 	/**
 	 * action create
 	 *
@@ -100,7 +93,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
         $this->taskRepository->setRelationToProject($taskUid, $projectUid);
 		$this->redirect('list','Project',NULL, array('project'=>$projectUid, 'task'=>$taskUid, 'userid'=>$GLOBALS['TSFE']->fe_user->user['uid']));
 	}
-
 	/**
 	 * action edit
 	 *
@@ -115,12 +107,11 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		$this->view->assign('selectedID', $projectUid);
 		$this->view->assign('task', $task);
 	}
-
-
-
     /**
+     * This resolves done tasks
      * @param \Pmtodo\Pmtodo\Domain\Model\Task $task
-     * @ignorevalidation $task
+     *
+     * @return bool
      */
     public function resolvedAction(\Pmtodo\Pmtodo\Domain\Model\Task $task) {
         $newTask = $this->taskRepository->findByUid($task->getUid());
@@ -134,11 +125,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
         }
         return true;
     }
-
-
-
-
-
 	/**
 	 * action update
 	 *
@@ -156,7 +142,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
         }
         $this->redirect('list','Project',NULL, array('project'=>$projectUid));
 	}
-
 	/**
 	 * action delete
 	 *
@@ -168,8 +153,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		$this->taskRepository->remove($task);
 		$this->redirect('list');
 	}
-
-
     /**
      * Upload Files
      * ToDo: Use Framework
@@ -189,7 +172,6 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
                     echo 'uploads/tx_pmtodo/'.$timestamp.'_'.$_FILES['upl']['name'];
                     exit;
                 }
-
             }else{
                 if(\TYPO3\CMS\Core\Utility\GeneralUtility::upload_copy_move($_FILES['upl']['tmp_name'], $filePath.$_FILES['upl']['name'])){
                     echo 'uploads/tx_pmtodo/'.$_FILES['upl']['name'];

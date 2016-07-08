@@ -47,15 +47,12 @@ class TodoController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 */
 	public function listAction() {
 		$todos = $this->todoRepository->findAll();
-DebuggerUtility::var_dump($_GET,'fff');
         if($this->request->hasArgument('task')){
             $this->view->assign('taskIt', $this->request->getArgument('task'));
 
         }
-
         $this->view->assign('todos', $todos);
 	}
-
 	/**
 	 * action show
 	 *
@@ -135,7 +132,6 @@ DebuggerUtility::var_dump($_GET,'fff');
         }
         $this->redirect('list','Project',NULL, array('project'=>$projectUid, 'task'=>$tasktUid));
 	}
-
 	/**
 	 * action delete
 	 *
@@ -146,9 +142,8 @@ DebuggerUtility::var_dump($_GET,'fff');
 		$this->todoRepository->remove($todo);
 		$this->redirect('list');
 	}
-
-
     /**
+     * Resolves done Todos
      * @param \Pmtodo\Pmtodo\Domain\Model\Todo $todo
      */
     public function resolvedAction(\Pmtodo\Pmtodo\Domain\Model\Todo $todo){
@@ -165,7 +160,6 @@ DebuggerUtility::var_dump($_GET,'fff');
     }
     /**
      * Upload Files
-     * ToDo: Use Framework
      */
     public function uploadFilesAction(){
         $allowed = array('png', 'jpg', 'gif','zip','doc', 'xls', 'csv', 'docx', 'xlsx', 'psd', 'rar', 'indd', 'ind', 'pdf');
