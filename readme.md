@@ -30,4 +30,4 @@ https://forge.typo3.org/projects/extension-pmtodo/
 https://dkoehl.github.io/pmtodo/
 
 ### Contact
-@pmnewmedia
+Twitter: @pmnewmedia
