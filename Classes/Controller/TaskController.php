@@ -90,7 +90,8 @@ class TaskController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
             $newTask->setFiles(str_replace('uploads/tx_pmtodo/', '',$this->request->getArgument('file')));
         }
         $this->taskRepository->add($newTask);
-        $persistenceManager = $this->objectManager->get('Tx_Extbase_Persistence_Manager');
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $persistenceManager = $objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
         $persistenceManager->persistAll();
         $taskUid = $newTask->getUid();
         if($this->request->hasArgument('project')){

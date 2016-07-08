@@ -91,7 +91,8 @@ DebuggerUtility::var_dump($_GET,'fff');
             $newTodo->setFiles(str_replace('uploads/tx_pmtodo/', '',$this->request->getArgument('file')));
         }
         $this->todoRepository->add($newTodo);
-        $persistenceManager = $this->objectManager->get('Tx_Extbase_Persistence_Manager');
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $persistenceManager = $objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
         $persistenceManager->persistAll();
         $todoUid = $newTodo->getUid();
         if($this->request->hasArgument('project')){
