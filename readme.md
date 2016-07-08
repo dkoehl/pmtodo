@@ -8,11 +8,14 @@ easy to use, full responsive (made with twitters Bootstrap)
 This app is an TYPO3 CMS Extension build with Extbase and Fluid
 
 ### Installation
-Add Extension to your TYPO3 CMS via Extension Manager (Download via Git or HTTP Download). Install the Extension as knownn than change to your Page TypoScript Template add the static TS Template (pmtodo) to you Page Template.
+Add the Extension to your TYPO3 CMS via Extension Manager (Download via Git or HTTP Download). Install the Extension as always. Add the static TypoScript (pmtodo) to your Page Template (Recommendation: Add the static TypoScript only to the Page where the Plugin is insert).
 
-### Configuration 
-First after adding the Static TypoScrit to your Page Template you need to add a Storage Folder where your Data is stored. Next step should be adding the Plugin to a Page, select your Storage Folder
+### Configuration
+Insert the Plugin in a Page. Select your Data-Storage. 
 ####!Attention!
-You should switch the Access-Settings of the Plugin, the Plugin should only be shown, when a valid Frontend-User is logged in. This is only nessecary if the Applications is used by more users.
+You should switch the Access-Settings of the Plugin, the Plugin should only be shown, when a valid Frontend-User is logged in. 
+
+### Multiple User
+The ToDo-App uses the common TYPO3 CMS Fe-User Management, every Frontend-User can use this App as his own Instance.
 
 
