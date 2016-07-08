@@ -18,4 +18,5 @@ You should switch the Access-Settings of the Plugin, the Plugin should only be s
 ### Multiple User
 The ToDo-App uses the common TYPO3 CMS Fe-User Management, every Frontend-User can use this App as his own Instance.
 
-
+### Drag and Drop File-Upload
+The files are default stored in uploads/tx_pmtodo/
