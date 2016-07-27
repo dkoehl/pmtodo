@@ -120,8 +120,8 @@ $GLOBALS['TCA']['tx_pmtodo_domain_model_project'] = array(
 			'label' => 'LLL:EXT:pmtodo/Resources/Private/Language/locallang_db.xlf:tx_pmtodo_domain_model_project.description',
 			'config' => array(
 				'type' => 'text',
-				'cols' => 40,
-				'rows' => 15,
+				'cols' => 30,
+				'rows' => 5,
 				'eval' => 'trim'
 			)
 		),

@@ -144,20 +144,10 @@ $GLOBALS['TCA']['tx_pmtodo_domain_model_task'] = array(
 			'label' => 'LLL:EXT:pmtodo/Resources/Private/Language/locallang_db.xlf:tx_pmtodo_domain_model_task.description',
 			'config' => array(
 				'type' => 'text',
-				'cols' => 40,
-				'rows' => 15,
-				'eval' => 'trim',
-				'wizards' => array(
-					'RTE' => array(
-						'icon' => 'wizard_rte2.gif',
-						'notNewRecords'=> 1,
-						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					)
-				)
-			),
+				'cols' => 30,
+				'rows' => 5,
+				'eval' => 'trim'
+			)
 		),
         'files' => array(
             'exclude' => 1,
