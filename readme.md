@@ -24,6 +24,9 @@ The files are default stored in uploads/tx_pmtodo/
 ### Resources and Frameworks
 This Extension comes with all dependencies and is build for stand-alone.
 
+## Screenshots 
+You can find some screenshots in the wiki or at typo3 forge
+
 ### Related Links
 https://forge.typo3.org/projects/extension-pmtodo/
 
@@ -31,3 +34,5 @@ https://dkoehl.github.io/pmtodo/
 
 ### Contact
 Twitter: @pmnewmedia
+
+
