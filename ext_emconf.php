@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
     'title' => 'pm Todo- App',
-    'description' => 'ToDo App - Eine Full-Responsive Todo-App (gebaut mit Twitters Bootstrap 3). Läuft in TYPO3 CMS ab Version 6.2 bis 7.6.x. Die einzigste Voraussetzung für den Betrieb des Plugins ist Bootstrap. jQuery bringt die Extension schon mit. Kann aber jederzeit mit TypoScript überschrieben werden.',
+    'description' => 'ToDo App - Eine Full-Responsive Todo-App (gebaut mit Twitters Bootstrap 3). Läuft in TYPO3 CMS ab Version 6.2 bis 7.6.x. Die einzigste Voraussetzung für den Betrieb des Plugins ist Bootstrap. Weitere Infos: https://github.com/dkoehl/pmtodo',
     'category' => 'plugin',
     'author' => 'pmtodo@pm-newmedia.com',
     'author_email' => 'pmtodo@pm-newmedia.com',
