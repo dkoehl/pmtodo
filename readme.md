@@ -36,4 +36,5 @@ https://dkoehl.github.io/pmtodo/
 ### Contact
 Twitter: @pmnewmedia
 
-
+## Installation Guide
+https://github.com/dkoehl/pmtodo/wiki
