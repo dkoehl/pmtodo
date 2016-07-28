@@ -16,7 +16,8 @@ Insert the Plugin in a Page. Select your Data-Storage.
 You should switch the Access-Settings of the Plugin, the Plugin should only be shown, when a valid Frontend-User is logged in. 
 
 ### Multiple User
-The ToDo-App uses the common TYPO3 CMS Fe-User Management, every Frontend-User can use this App as his own Instance.
+The ToDo-App uses the common TYPO3 CMS Fe-User Management, every Frontend-User can use this App as his own Instance. You need an active FeUser-Session.
+
 
 ### Drag and Drop File-Upload
 The files are default stored in uploads/tx_pmtodo/
