@@ -17,22 +17,20 @@ $EM_CONF[$_EXTKEY] = array(
     'author' => 'pmtodo@pm-newmedia.com',
     'author_email' => 'pmtodo@pm-newmedia.com',
     'state' => 'beta',
-	'internal' => '',
-	'uploadfolder' => '1',
-	'createDirs' => '',
-	'clearCacheOnLoad' => 1,
-	'version' => '1.0.1',
-  array (
-    'depends' =>
-    array (
-      'typo3' => '6.2.99-7.9.99',
-      'bootstrap_package' => '6.2.99-7.99.99',
+    'internal' => '',
+    'uploadfolder' => '1',
+    'createDirs' => '',
+    'clearCacheOnLoad' => 1,
+    'version' => '1.0.3',
+    array(
+        'depends' =>
+            array(
+                'typo3' => '6.2.0-7.9.99',
+                'bootstrap_package' => '6.2.0-7.99.99',
+            ),
+        'conflicts' =>
+            array(),
+        'suggests' =>
+            array(),
     ),
-    'conflicts' =>
-    array (
-    ),
-    'suggests' =>
-    array (
-    ),
-  ),
 );
