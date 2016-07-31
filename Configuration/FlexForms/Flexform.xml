@@ -18,67 +18,67 @@
                                         <numIndex index="0">Bitte auswählen</numIndex>
                                     </numIndex>
                                     <numIndex index="1">
-                                        <numIndex index="0">Projekte</numIndex>
+                                        <numIndex index="0">Todo App</numIndex>
                                         <numIndex index="1">Project->list;Project->new;Project->create;Project->edit;Project->show;Task->new;Task->edit;Task->list;Task->show;Task->update;odo->show;Todo->edit;Todo->list;Todo->new</numIndex>
                                     </numIndex>
-                                    <numIndex index="2">
-                                        <numIndex index="0">Tasks</numIndex>
-                                        <numIndex index="1">Task->new;Task->edit;Task->list;Task->show;Task->update;</numIndex>
-                                    </numIndex>
-                                    <numIndex index="3">
-                                        <numIndex index="0">ToDos</numIndex>
-                                        <numIndex index="1">Todo->show;Todo->edit;Todo->list</numIndex>
-                                    </numIndex>
+                                    <!--<numIndex index="2">-->
+                                        <!--<numIndex index="0">Tasks</numIndex>-->
+                                        <!--<numIndex index="1">Task->new;Task->edit;Task->list;Task->show;Task->update;</numIndex>-->
+                                    <!--</numIndex>-->
+                                    <!--<numIndex index="3">-->
+                                        <!--<numIndex index="0">ToDos</numIndex>-->
+                                        <!--<numIndex index="1">Todo->show;Todo->edit;Todo->list</numIndex>-->
+                                    <!--</numIndex>-->
                                 </items>
                             </config>
                         </TCEforms>
                     </switchableControllerActions>
 
 
-                    <settings.newprojectpage>
-                        <TCEforms>
-                            <label>Link zur Projectseite</label>
-                            <config>
-                                <type>group</type>
-                                <internal_type>db</internal_type>
-                                <allowed>pages</allowed>
-                                <foreign_table>pages</foreign_table>
-                                <size>1</size>
-                                <maxitems>1</maxitems>
-                                <minitems>0</minitems>
-                            </config>
-                        </TCEforms>
-                    </settings.newprojectpage>
+                    <!--<settings.newprojectpage>-->
+                        <!--<TCEforms>-->
+                            <!--<label>Link zur Projectseite</label>-->
+                            <!--<config>-->
+                                <!--<type>group</type>-->
+                                <!--<internal_type>db</internal_type>-->
+                                <!--<allowed>pages</allowed>-->
+                                <!--<foreign_table>pages</foreign_table>-->
+                                <!--<size>1</size>-->
+                                <!--<maxitems>1</maxitems>-->
+                                <!--<minitems>0</minitems>-->
+                            <!--</config>-->
+                        <!--</TCEforms>-->
+                    <!--</settings.newprojectpage>-->
 
-                    <settings.newtaskpage>
-                        <TCEforms>
-                            <label>Link zur Taskseite</label>
-                            <config>
-                                <type>group</type>
-                                <internal_type>db</internal_type>
-                                <allowed>pages</allowed>
-                                <foreign_table>pages</foreign_table>
-                                <size>1</size>
-                                <maxitems>1</maxitems>
-                                <minitems>0</minitems>
-                            </config>
-                        </TCEforms>
-                    </settings.newtaskpage>
+                    <!--<settings.newtaskpage>-->
+                        <!--<TCEforms>-->
+                            <!--<label>Link zur Taskseite</label>-->
+                            <!--<config>-->
+                                <!--<type>group</type>-->
+                                <!--<internal_type>db</internal_type>-->
+                                <!--<allowed>pages</allowed>-->
+                                <!--<foreign_table>pages</foreign_table>-->
+                                <!--<size>1</size>-->
+                                <!--<maxitems>1</maxitems>-->
+                                <!--<minitems>0</minitems>-->
+                            <!--</config>-->
+                        <!--</TCEforms>-->
+                    <!--</settings.newtaskpage>-->
 
-                    <settings.newtodopage>
-                        <TCEforms>
-                            <label>Link zur Todoseite</label>
-                            <config>
-                                <type>group</type>
-                                <internal_type>db</internal_type>
-                                <allowed>pages</allowed>
-                                <foreign_table>pages</foreign_table>
-                                <size>1</size>
-                                <maxitems>1</maxitems>
-                                <minitems>0</minitems>
-                            </config>
-                        </TCEforms>
-                    </settings.newtodopage>
+                    <!--<settings.newtodopage>-->
+                        <!--<TCEforms>-->
+                            <!--<label>Link zur Todoseite</label>-->
+                            <!--<config>-->
+                                <!--<type>group</type>-->
+                                <!--<internal_type>db</internal_type>-->
+                                <!--<allowed>pages</allowed>-->
+                                <!--<foreign_table>pages</foreign_table>-->
+                                <!--<size>1</size>-->
+                                <!--<maxitems>1</maxitems>-->
+                                <!--<minitems>0</minitems>-->
+                            <!--</config>-->
+                        <!--</TCEforms>-->
+                    <!--</settings.newtodopage>-->
 
 
 

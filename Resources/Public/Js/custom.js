@@ -136,7 +136,6 @@ $(document).ready(function () {
             url: $(this).attr("href")+'&type=666',
             type: "GET",
             data: '',
-
             success: function (success) {
                 $( ".projectEditResponse" ).html(success);
                 $( ".projectEditResponse" ).slideDown( "fast", function() {
