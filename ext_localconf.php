@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 	'Pmtodo.' . $_EXTKEY,
 	'Pmtodo',
 	array(
-		'Project' => '',
+		'Project' => 'list',
 		'Task' => '',
 		'Todo' => '',
 		
