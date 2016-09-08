@@ -7,9 +7,9 @@ if (!defined('TYPO3_MODE')) {
 	'Pmtodo.' . $_EXTKEY,
 	'Pmtodo',
 	array(
-		'Project' => 'list',
-		'Task' => '',
-		'Todo' => '',
+		'Project' => 'list, show, new, create, edit, update, delete',
+		'Task' => 'new, create, uploadFiles, edit, update,resolved, delete, list, show',
+		'Todo' => 'list,resolved, uploadFiles, show, new, create, edit, update, delete',
 		
 	),
 	// non-cacheable actions
